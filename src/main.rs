@@ -88,5 +88,5 @@ fn main() {
     let song_json = std::fs::read_to_string(home_dir().join(".moosic/songs.json")).unwrap();
     let songs: Vec<Song> = serde_json::from_str(&song_json).unwrap();
     SONGS.lock().unwrap().extend(songs);
-    launch(app);
+    launch_with_title(app, "Moosic");
 }
